@@ -6,6 +6,11 @@ const Nav = () => (
 	<div id="nav-component">
 		<header>
 
+			<Link to="/rest">
+				<button type="button">
+					Rest API
+				</button>
+			</Link>
 			<Link to="/">
 				<button type="button">
 					<img id="logo" src={logo} alt="logo-react" />

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Nav from './Nav';
 import Home from './Home';
 import Counter from './Counter';
+import RestAPI from './RestAPI';
 import Page404 from './Page404';
 
 const App = () => (
@@ -24,6 +25,11 @@ const App = () => (
 						exact
 						path="/count"
 						component={Counter}
+					/>
+					<Route
+						exact
+						path="/rest"
+						component={RestAPI}
 					/>
 					<Route component={Page404} />
 				</Switch>

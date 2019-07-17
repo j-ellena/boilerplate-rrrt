@@ -74,7 +74,6 @@ a,
     align-items: center;
 }
 
-#app-component,
 #counter-component,
 #home-component,
 #nav-component,
@@ -141,17 +140,35 @@ button:hover {
     width: 100%;
 }
 
-#page404-component,
-#router-div {
-    margin: 0;
-    padding: 0;
-    background-color: #000000;
+#page404-component {
     width: 100vw;
     height: 100vh;
+}
+#restAPI-component {
+    width: 90vw;
+    margin: 0vw 5vw auto 5vw;
+    padding: 0vw 1vw 1vw 1vw;
+}
+
+#page404-component {
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
 }
 #funky-chicken {
     width: 30%
 }
 #funky-chicken img{
     width: 100%
+}
+
+#data-list {
+    column-count: 2;
+    margin: 0;
+    padding: 0;
+}
+
+#data-list li {
+    list-style: none;
+    text-align: left;
 }
