@@ -8,13 +8,19 @@ class RestAPI extends Component {
 		};
 	}
 
-	componentDidMount() {
-		fetch('https://jsonplaceholder.typicode.com/todos')
-			.then(response => response.json())
-			.then(dataJSON => this.setState({
-				data: dataJSON,
-			}));
+	async componentDidMount() {
+		const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+		const json = await response.json();
+		this.setState({ data: json });
 	}
+
+	// componentDidMount() {
+	// 	fetch('https://jsonplaceholder.typicode.com/todos')
+	// 		.then(response => response.json())
+	// 		.then(dataJSON => this.setState({
+	// 			data: dataJSON,
+	// 		}));
+	// }
 
 	render() {
 		const { data } = this.state;
