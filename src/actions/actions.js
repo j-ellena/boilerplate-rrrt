@@ -1,13 +1,39 @@
-export const increaseClicked = count => {
-    return {
-        type: 'INCREASE_COUNT',
-        count
-    };
+export const increaseSync = () => (dispatch) => {
+	dispatch({
+		type: 'INCREASE_REQUESTED',
+	});
+	dispatch({
+		type: 'INCREASE_COUNT',
+	});
 };
 
-export const decreaseClicked = count => {
-    return {
-        type: 'DECREASE_COUNT',
-        count
-    };
+export const decreaseSync = () => (dispatch) => {
+	dispatch({
+		type: 'DECREASE_REQUESTED',
+	});
+	dispatch({
+		type: 'DECREASE_COUNT',
+	});
+};
+
+export const increaseAsync = () => (dispatch) => {
+	dispatch({
+		type: 'INCREASE_REQUESTED',
+	});
+	return setTimeout(() => {
+		dispatch({
+			type: 'INCREASE_COUNT',
+		});
+	}, 3000);
+};
+
+export const decreaseAsync = () => (dispatch) => {
+	dispatch({
+		type: 'DECREASE_REQUESTED',
+	});
+	return setTimeout(() => {
+		dispatch({
+			type: 'DECREASE_COUNT',
+		});
+	}, 3000);
 };

@@ -1,36 +1,54 @@
-import React, { Component} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { increaseClicked, decreaseClicked } from '../actions/actions.js';
+import {
+	increaseSync,
+	decreaseSync,
+	increaseAsync,
+	decreaseAsync,
+} from '../actions/actions';
 
-const mapStateToProps = state => {
-    const props = {
-        count: state.count
-    };
-    return props;
+const mapStateToProps = state => ({
+	count: state.count,
+	isIncrementing: state.isIncrementing,
+	isDecrementing: state.isDecrementing,
+});
+
+const mapDispatchToProps = dispatch => ({
+	onIncrementSync: () => { dispatch(increaseSync()); },
+	onDecrementSync: () => { dispatch(decreaseSync()); },
+	onIncrementAsync: () => { dispatch(increaseAsync()); },
+	onDecrementAsync: () => { dispatch(decreaseAsync()); },
+});
+
+const Counter = (props) => {
+	const {
+		count,
+		isIncrementing,
+		isDecrementing,
+		onIncrementSync,
+		onDecrementSync,
+		onIncrementAsync,
+		onDecrementAsync,
+	} = props;
+
+	return (
+		<div id="counter-component">
+			<h1>Counter</h1>
+
+			<div className="flex-row">
+				<div className="flex-col">
+					<button onClick={onIncrementSync} type="button">increment sync</button>
+					<button onClick={onDecrementSync} type="button">decrement sync</button>
+				</div>
+				<h3>{count}</h3>
+				<div className="flex-col">
+					<button onClick={onIncrementAsync} disabled={isIncrementing} type="button">increment async</button>
+					<button onClick={onDecrementAsync} disabled={isDecrementing} type="button">decrement async</button>
+				</div>
+			</div>
+		</div>
+
+	);
 };
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onIncrementClick: () => { dispatch(increaseClicked()) },
-        onDecrementClick: () => { dispatch(decreaseClicked()) },
-    }
-};
-
-class Counter extends Component {
-
-    render(){
-        const { count, onIncrementClick, onDecrementClick } = this.props;
-        return (
-        <div id="counter-component">
-            <h1>Counter</h1>
-            <h3>{count}</h3>
-            <div>
-                <button onClick = {onIncrementClick}>increment</button>
-                <button onClick = {onDecrementClick}>decrement</button>
-            </div>
-        </div>
-    );
-}
-}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);

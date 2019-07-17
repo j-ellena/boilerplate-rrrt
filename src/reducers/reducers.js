@@ -1,27 +1,40 @@
 const initialState = {
-    count: 0
-}
+	count: 0,
+	isIncrementing: false,
+	isDecrementing: false,
+};
 
 const reducer = (state = initialState, action) => {
+	switch (action.type) {
+		case 'INCREASE_COUNT':
+			return {
+				...state,
+				count: state.count + 1,
+				isIncrementing: !state.isIncrementing,
+			};
 
-    switch (action.type) {
+		case 'DECREASE_COUNT':
+			return {
+				...state,
+				count: state.count - 1,
+				isDecrementing: !state.isDecrementing,
+			};
 
-        case 'INCREASE_COUNT':
-            return {
-                ...state,
-                count: state.count + 1
-            }
+		case 'INCREASE_REQUESTED':
+			return {
+				...state,
+				isIncrementing: true,
+			};
 
-        case 'DECREASE_COUNT':
-            return {
-                ...state,
-                count: state.count - 1
-            }
+		case 'DECREASE_REQUESTED':
+			return {
+				...state,
+				isDecrementing: true,
+			};
 
-        default:
-            return state;
-    }
-
-}
+		default:
+			return state;
+	}
+};
 
 export default reducer;

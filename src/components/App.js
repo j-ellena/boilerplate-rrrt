@@ -1,31 +1,35 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Counter from './Counter.js';
-import Nav from './Nav.js';
-import Home from './Home.js';
+import Nav from './Nav';
+import Home from './Home';
+import Counter from './Counter';
 
 const App = () => (
 
-        <div id="app-component">
+	<div id="app-component">
 
-            <BrowserRouter>
+		<BrowserRouter>
 
-                <div id="router-div">
+			<div id="router-div">
 
-                    <Nav />
+				<Nav />
 
-                    <Route
-                        exact path='/'
-                        component={ Home }
-                    />
-                    <Route
-                        exact path='/count'
-                        component={ Counter }
-                    />
-                </div>
-            </BrowserRouter>
+				<Route
+					exact
+					path="/"
+					component={Home}
+				/>
+				<Route
+					exact
+					path="/count"
+					component={Counter}
+				/>
 
-        </div>
-    );
+
+			</div>
+		</BrowserRouter>
+
+	</div>
+);
 
 export default App;

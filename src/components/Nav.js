@@ -1,28 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo-react.svg';
 
-const Nav = () => {
+const Nav = () => (
+	<div id="nav-component">
+		<header>
 
-    return (
-        <div id="nav-component">
-            <header>
+			<Link to="/">
+				<button type="button">
+					<img id="logo" src={logo} alt="logo-react" />
+				</button>
+			</Link>
 
-                <Link to='/'>
-                    <button>
-                        <img id="logo" src={logo} alt="logo"/>
-                    </button>
-                </Link>
-
-                <Link to='/count'>
-                    <button>
+			<Link to="/count">
+				<button type="button">
                         iCount
-                    </button>
-                </Link>
+				</button>
+			</Link>
 
-            </header>
-        </div>
-    )
-};
+		</header>
+	</div>
+);
 
 export default Nav;
