@@ -42,7 +42,6 @@ code {
 #counter-component,
 #home-component,
 #nav-component,
-#page404-component,
 #router-div {
     margin: 0vw 10vw auto 10vw;
     padding: 0vw 2vw 1vw 2vw;
@@ -51,6 +50,7 @@ code {
 #app-component,
 #counter-component,
 #home-component,
+#page404-component,
 #router-div,
 .flex-col {
     display: flex;
@@ -139,4 +139,19 @@ button:hover {
 #router-logo img,
 #redux-logo img {
     width: 100%;
+}
+
+#page404-component,
+#router-div {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    width: 100vw;
+    height: 100vh;
+}
+#funky-chicken {
+    width: 30%
+}
+#funky-chicken img{
+    width: 100%
 }
